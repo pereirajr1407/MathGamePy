@@ -1,5 +1,5 @@
-from models.calcular import Calcular
+from models.calculate import Calculate
 
-calc: Calcular = Calcular(1)
+calc: Calculate = Calculate(1)
 
 print(calc)
