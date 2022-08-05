@@ -12,7 +12,9 @@ As soon as the user answer the challenge, he will be notified if he got the corr
 
 ## Executing the code
 
-To run the game, simply open your terminal, go to the root folder of this project and run `python3 game.py`.
+To run the game, simply open your terminal, go to the root folder of this project, type `python3 game.py` and press Enter. The game should start. 
+
+ps: The command may vary based on your Python installation. Use the Python command that is configured in your computer. 
 
 ### Disclaimer:
 
