@@ -1,29 +1,43 @@
 from models.calculate import Calculate
 
-def main() -> None:
-	points: int = 0
-	play(points)
+def main():
+	points = 0
+	set_difficulty(points)
 
-def play(points) -> None:
-	difficulty: int = int(input('Choose the desired difficulty level (1, 2, 3 or 4): '))
+def set_difficulty(points):
+	difficulty = str(input('Choose the difficulty level:\n\nKid Play\nEasy\nMedium\nHard\n').casefold())
+	
+	play(points, difficulty)
 
-	calc: Calculate = Calculate(difficulty)
+def play(points, difficulty):
+	calc = Calculate(difficulty)
 
 	print('Solve the following challenge: ')
-
 	calc.show_operation()
 
-	result: int = int(input())
+	result = int(input())
 
 	if calc.check_result(result):
 		points += 1
-		print(f'You have {points} point(s).')
+		print('You got 1 point!')
+		print(f'You have {points} point(s)!')
+	elif not calc.check_result(result):
+		points -=1
+		print('You lost 1 point!')
+		print(f'You have {points} point(s)')
 
-	continue_game: int = int(input('Do you want to keep playing? (1 - Yes, 0 - No): '))
+	continue_game = str(input('Do you want to keep playing? (Yes, No): ').casefold())
+	change_difficulty = ''
+	
+	if continue_game == "yes":
+		change_difficulty = str(input('Do you want to change the difficulty? (Yes, No): ').casefold())
 
-	if continue_game:
-		play(points)
-	else:
+		print(change_difficulty)
+		if change_difficulty == "yes":
+			set_difficulty(points)
+		else:
+			play(points, difficulty)
+	elif continue_game == "no":
 		print(f'You got {points} point(s).')
 		print('See you next time!')
 
