@@ -2,35 +2,35 @@ from random import randint
 
 class Calculate:
 
-	def __init__(self: object, difficulty: int, ) -> None:
-		self.__difficulty: int = difficulty
-		self.__first_value: int = self._generate_value
-		self.__second_value: int = self._generate_value
-		self.__operation: int = randint(1, 3)
-		self.__result: int = self._generate_result
+	def __init__(self: object, difficulty: int, ):
+		self.__difficulty = difficulty
+		self.__first_value = self._generate_value
+		self.__second_value = self._generate_value
+		self.__operation = randint(1, 3)
+		self.__result = self._generate_result
 
 	@property
-	def difficulty(self: object) -> int:
+	def difficulty(self: object):
 		return self.__difficulty
 
 	@property
-	def first_value(self: object) -> int:
+	def first_value(self: object):
 		return self.__first_value
 
 	@property
-	def second_value(self: object) -> int:
+	def second_value(self: object):
 		return self.__second_value
 	
 	@property
-	def operation(self: object) -> int:
+	def operation(self: object):
 		return self.__operation
 
 	@property
-	def result(self: object) -> int:
+	def result(self: object):
 		return self.__result
 
-	def __str__(self: object) -> str:
-		op: str = ''
+	def __str__(self: object):
+		op = ''
 		if self.operation == 1:
 			op = 'Sum'
 		elif self.operation == 2:
@@ -38,24 +38,19 @@ class Calculate:
 		else:
 			op = 'Multiply'
 
-		return f'First value: {self.first_value} \nSecond value: {self.second_value} \nDifficulty: {self.difficulty} \nOperation: {op}'
-
 	@property
-	def _generate_value(self: object) -> int:
-		if self.difficulty == 1:
+	def _generate_value(self: object):
+		if self.difficulty == "kid play":
 			return randint(0, 10)
-		elif self.difficulty == 2:
+		elif self.difficulty == "easy":
 			return randint(0, 100)
-		elif self.difficulty == 3:
+		elif self.difficulty == "medium":
 			return randint(0, 1000)
-		elif self.difficulty == 4:
+		elif self.difficulty == "hard":
 			return randint(0, 10000)
-		else:
-			print('Very funny... Now solve this one: ')
-			return randint(0, 100000)
 
 	@property
-	def _generate_result(self: object) -> int:
+	def _generate_result(self: object):
 		if self.operation == 1:
 			return self.first_value + self.second_value
 		elif self.operation == 2:
@@ -64,16 +59,16 @@ class Calculate:
 			return self.first_value * self.second_value
 
 	@property
-	def _op_symbol(self: object) -> str:
+	def _op_symbol(self: object):
 		if self.operation == 1:
 			return '+'
 		elif self.operation == 2:
 			return '-'
 		else:
-			return '*'
+			return 'x'
 
-	def check_result(self: object, answer: int) -> bool:
-		correct: bool = False
+	def check_result(self: object, answer: int):
+		correct = False
 		if self.result == answer:
 			print('Correct!')
 			correct = True
